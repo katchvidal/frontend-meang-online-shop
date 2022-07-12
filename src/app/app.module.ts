@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { GraphQLModule } from '@graphql/modules/graphql.module';
 import { AdminModule } from './@admin/pages/admin.module';
 import { PublicModule } from './@public/pages/public.module';
 
@@ -12,6 +13,7 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
+    GraphQLModule,
     AdminModule,
     PublicModule,
     AppRoutingModule
