@@ -6,12 +6,12 @@ import { ApiService } from '@graphql/services/api.service';
 import { GET_LOGIN } from '@graphql/operations/queries/signIn.query';
 import { AUTH_ME } from '@graphql/operations/queries/authorization.query';
 import { IAuthMeResponse, ISession } from '@core/interfaces/session.interfaces';
-import { IUser } from '@core/interfaces/user.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService extends ApiService {
+  
   accessVar = new Subject<IAuthMeResponse>();
   accessVar$ = this.accessVar.asObservable();
 
@@ -33,7 +33,9 @@ export class AuthService extends ApiService {
       .pipe(map((res: any) => { return res.auth }))
   }
 
-  /**Configuraciones para Settear Usuario Loggueado */
+  /*
+  * Serie de funciones que nos ayudaran a gestionar el estado de usuario con session active o no!
+  */
 
   setSession( token : string , expiresInHours = 24, user : any ){
     const date = new Date();
@@ -47,7 +49,7 @@ export class AuthService extends ApiService {
     // console.log('Inicio de Session:', session );
   }
 
-  getSession(){
+  getSession() : ISession {
     return JSON.parse(localStorage.getItem('session')!)
   }
 
@@ -60,20 +62,24 @@ export class AuthService extends ApiService {
         }
         this.updateSession( res )
       });
-      console.log('Session Active')
+      // console.log('Session Active')
       return;
     }
     this.updateSession({ status: false, })
-    console.log('Session Not Active')
+    // console.log('Session Not Active')
   }
 
   resetSession(){
-    localStorage.removeItem('session')
+    localStorage.removeItem('session');
+    this.updateSession({ status: false });
   }
 
   updateSession( newValue : IAuthMeResponse ){
     this.accessVar.next( newValue )
   }
 
+  closeSession(){
+    return this.resetSession();
+  }
 
 }

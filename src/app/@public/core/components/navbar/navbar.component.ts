@@ -9,10 +9,15 @@ import { AuthService } from '@core/services/public/auth.service';
     ` .custom-bg{
         background-color: #181f2c !important;
       }
+
+      a{
+        cursor: pointer;
+      }
     `
   ]
 })
 export class NavbarComponent implements OnInit {
+
   session: IAuthMeResponse = {
     status: false
   }
@@ -20,6 +25,7 @@ export class NavbarComponent implements OnInit {
   lastname : string = 'Apellido Usuario'
   role : string = ''
   logged : boolean = false
+
   constructor( private authService : AuthService) {
     this.authService.accessVar$.subscribe(( res ) => { 
       this.session = res;
@@ -30,8 +36,10 @@ export class NavbarComponent implements OnInit {
     })
    }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
 
+  closeSession(){
+    this.authService.closeSession();
   }
 
 }
