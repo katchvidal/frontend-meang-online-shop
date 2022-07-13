@@ -6,7 +6,8 @@
     "paths": {
       "@shop/*" : ["src/app/@public/*"],
       "@graphql/*" : ["src/app/@graphql/*"],
-      "@core/*" : ["src/app/core/*"],
+      "@shared/*" : ["src/app/@shared/*"],
+      "@core/*" : ["src/app/@core/*"],
       "@admin/*" : ["src/app/@admin/*"],
       "@shop-core/*" : ["src/app/@public/core/*"],
       "@admin-core/*" : ["src/app/@admin/core/*"],

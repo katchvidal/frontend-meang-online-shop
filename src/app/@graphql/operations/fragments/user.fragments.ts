@@ -3,7 +3,7 @@ import { gql } from "apollo-angular";
 
 export const USER_FRAGMENT = gql`
     fragment UserObject on User {
-        _id
+        _id @include(if: $include)
         name
         lastname
         email

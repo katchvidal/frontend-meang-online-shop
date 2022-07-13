@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '@core/services/public/auth.service';
 
 @Component({
   selector: 'app-public',
@@ -14,9 +15,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PublicComponent implements OnInit {
 
-  constructor() { }
+  constructor( private authService : AuthService ) { }
 
   ngOnInit(): void {
+    this.authService.verifySession();
   }
 
 }

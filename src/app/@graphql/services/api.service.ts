@@ -15,7 +15,7 @@ export class ApiService {
       query,
       variables,
       context,
-      fetchPolicy: 'cache-and-network'
+      fetchPolicy: 'network-only'
     })
     .valueChanges
     .pipe(map(res => { return res.data }))
