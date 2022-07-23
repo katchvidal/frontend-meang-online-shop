@@ -7,16 +7,14 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import {CalendarModule} from 'primeng/calendar';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    CalendarModule,
-    BrowserAnimationsModule,
     BrowserModule,
+    BrowserAnimationsModule,
     GraphQLModule,
     AdminModule,
     PublicModule,

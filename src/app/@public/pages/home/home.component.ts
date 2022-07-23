@@ -52,9 +52,9 @@ export class HomeComponent implements OnInit {
   constructor( private authService: AuthService, private userService: UsersService ) { }
 
   ngOnInit(): void {
-    // this.authService.signIn( 'kia@correo.com', '123456').subscribe( res => console.log( res ))
-    // this.authService.getMe().subscribe( res => console.log( res ))
-    // this.userService.getUsers().subscribe( res => console.log( res ))
+    this.authService.signIn( 'kia@correo.com', '123456').subscribe( res => console.log( res ))
+    this.authService.getMe().subscribe( res => console.log( res ))
+    this.userService.getUsers().subscribe( res => console.log( res ))
     let today = new Date();
     let month = today.getMonth();
     let year = today.getFullYear();
@@ -72,6 +72,11 @@ export class HomeComponent implements OnInit {
     let invalidDate = new Date();
     invalidDate.setDate(today.getDate() - 1);
     this.invalidDates = [today,invalidDate];
+
+  }
+
+  enviar(){
+    console.log( this.date3 )
   }
 
 }

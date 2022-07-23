@@ -1,4 +1,8 @@
-<button pButton type="button" label="Click" ></button>
+<div class="field col-12 md:col-4">
+    <label for="icon">Icon</label>
+    <p-calendar [(ngModel)]="date3" [showIcon]="true" inputId="icon"></p-calendar>
+    <button (click)="enviar()" > Enviar </button>
+</div>
 
 <p class="container mt-2"> 
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto libero atque minus recusandae. Similique autem doloremque recusandae. 
